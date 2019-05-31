@@ -1,0 +1,19 @@
+<h1>Patients Page</h1>
+<hr class='main'/>
+  <div class='ui cards' id='card_button'>
+    <% @patients.each do |p|%>
+    <div class='card' id='card'>
+    <div class='header'>
+      First: <b><%= p.first_name %></b>
+    </div>
+      Last: <%= p.last_name %>
+    <div class='description'>
+      Age: <%= p.age %>
+      Sex:<b> <%= p.sex %></b>
+      <hr/>
+      <div id='card_button'  >
+        <%= link_to "See Patient", patient_path(p.id), class:'ui secondary basic button' %>
+        </div>
+    </div>
+  </div>
+    <% end %>

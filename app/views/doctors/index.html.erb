@@ -1,0 +1,17 @@
+<h1>Doctors</h1>
+<hr class='main'/>
+<div class='ui cards' id='card_button'>
+<% @doctors.each do |d| %>
+  <div class='card' id='card'>
+    <div class='header'>
+     <b>Name: </b><%= d.name %>
+    </div>
+  <div class='description'>
+    <b>Profession: </b><%= d.profession %>
+  <hr/>
+    <div id='card_button'  >
+      <%= link_to "See Doctor", doctor_path(d.id), class:'ui secondary basic button' %>
+    </div>
+  </div>
+  </div>
+    <% end %>
