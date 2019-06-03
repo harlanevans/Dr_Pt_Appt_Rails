@@ -1,19 +1,36 @@
 <h1>Patients Page</h1>
-<hr class='main'/>
+<hr/>
+<% if @patients.any? %>
   <div class='ui cards' id='card_button'>
     <% @patients.each do |p|%>
     <div class='card' id='card'>
     <div class='header'>
-      First: <b><%= p.first_name %></b>
+      <b>First: </b><%= p.first_name %>
     </div>
-      Last: <%= p.last_name %>
     <div class='description'>
-      Age: <%= p.age %>
-      Sex:<b> <%= p.sex %></b>
+      <div>
+      <b>Last: </b><%= p.last_name %>
+      </div>
+      <div>
+      <b>Age: </b><%= p.age %>
+      </div>
+      <div>
+      <b>Sex: </b><%= p.sex %>
+      </div>
+     <b>Doctors: </b><%= p.doctors.count %>
       <hr/>
       <div id='card_button'  >
         <%= link_to "See Patient", patient_path(p.id), class:'ui secondary basic button' %>
         </div>
     </div>
   </div>
+    <% end %>
+    <% else %>
+<h1>No Patients</h1>
+<h4>-  Please Add A New Patient  -</h4>
+<%= link_to new_patient_path, id: 'card_button' do %>
+<button class='basic large circular ui icon button'>
+<i class='user plus icon'></i>
+</button>
+    <% end %>
     <% end %>

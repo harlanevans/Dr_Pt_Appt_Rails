@@ -15,16 +15,34 @@
  */
 @import "semantic-ui";
 
+* {
+  margin: 0;
+  // box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  position: relative;
+}
+
 h1,
-h2 {
+h2,
+h4,
+h5,
+h6 {
   text-align: center;
+  font-weight: 300;
 }
 
-hr.main {
-  border: 1px solid black;
-  margin: 1em;
+h4.home {
+  line-height: 25px;
 }
 
+hr {
+  border: .5px solid #D4D4D5;
+  margin: 2em;
+}
 
 #container {
   padding: 2em;
@@ -40,14 +58,57 @@ hr.main {
   justify-content: center;
 }
 
-.patient_show {
-  border: 2px black solid;
+.patient_show,
+.doctor_show {
+  border: 1px #D4D4D5 solid;
   padding: 2em;
-  margin: 1em 10em;
+  margin: 2em 18em;
+  box-shadow: 1px 1px .5px .5px rgb(231, 231, 231);
+  border-radius: 2%;
 }
 
 .crud_buttons {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  padding: 1em;
+  margin: 2em;
+}
+
+.font-weight {
+  font-weight: 400;
+}
+
+.list_padding {
+  padding: 7px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  // padding: 1em;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  // min-height: 0%;
+  padding: 1em;
+  text-align: center;
+  border: .25px solid rgb(150, 150, 150);
+  box-shadow: 2px 2px 2px 2px rgb(231, 231, 231);
+}
+
+nav {
+  padding: .5em;
+  border-bottom: .25px solid rgb(150, 150, 150);
+  box-shadow: 2px 2px rgb(231, 231, 231);
+}
+
+#nav {
+  border-right: .5px solid rgb(150, 150, 150);
+  border-radius: 0%;
 }

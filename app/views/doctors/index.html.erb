@@ -1,5 +1,6 @@
 <h1>Doctors</h1>
 <hr class='main'/>
+<% if @doctors.any? %>
 <div class='ui cards' id='card_button'>
 <% @doctors.each do |d| %>
   <div class='card' id='card'>
@@ -8,10 +9,22 @@
     </div>
   <div class='description'>
     <b>Profession: </b><%= d.profession %>
+    <div>
+  <b>Number of Patients: </b><%= d.patients.count  %>
+    </div>
   <hr/>
     <div id='card_button'  >
       <%= link_to "See Doctor", doctor_path(d.id), class:'ui secondary basic button' %>
     </div>
   </div>
   </div>
-    <% end %>
+    <% end %> 
+    <% else %>
+    <h1>No Doctors</h1>
+    <h4>-  Please Add A New Doctor  -</h4>
+    <%= link_to new_doctor_path, id: 'card_button' do %>
+      <button class='basic large circular ui icon button'>
+      <i class='user md icon'></i>
+      </button>
+      <% end %>
+    <% end %> 

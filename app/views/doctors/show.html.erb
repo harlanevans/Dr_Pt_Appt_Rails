@@ -1,2 +1,23 @@
-<h1>Doctors#show</h1>
-<p>Find me in app/views/doctors/show.html.erb</p>
+  <div class='crud_buttons'>
+    <%= link_to 'See Appointments', doctor_appts_path(@doctor), class: 'ui basic button' %>
+    <%= link_to 'Add Appointment', new_doctor_appt_path(@doctor), class: 'ui basic button' %>
+  </div>
+<div class='doctor_show'>
+<h1>Doctor Information</h1>
+<hr/>
+  <h4>Name: <span class='font-weight'><%= @doctor.name %></span></h4>
+  <h5>Profession: <span class='font-weight'><%= @doctor.profession %></span></h5>
+  <h5>Patients: <span class='font-weight'>
+  <% @doctor.patients.each do |d|%>
+  
+    <div class='list_padding'>
+      <li><%= d.first_name %></li>
+  <% end %>
+  <div class='crud_buttons'>
+    <%= link_to 'Edit Doctor', edit_doctor_path(@doctor), class: "ui secondary basic button" %>
+    <%= link_to 'Delete Doctor', @doctor, method: :delete, class:'ui negative basic button' %>
+  </div>
+    </div>
+  </h5>
+  
+</div>

@@ -1,10 +1,22 @@
+
 <div class='patient_show'>
-  <h1>First: <%= @patient.first_name %></h1>
-  <h2>Last: <%= @patient.last_name %></h2>
-  <h2>Age: <%= @patient.age %></h2>
-  <h2>Sex: <%= @patient.sex %></h2>
-<div class='crud_buttons'>
-  <%= link_to 'Delete Patient', @patient, method: :delete, class:'ui negative basic button' %>
-  <%= link_to 'Edit Patient', edit_patient_path(@patient), class: "ui primary basic button" %>
+<h1>Patient Information</h1>
+<hr/>
+  <h4>First: <span class='font-weight'><%= @patient.first_name %></span></h4>
+    <h5>Last: <span class='font-weight'><%= @patient.last_name %></span></h5>
+    <h5>Age: <span class='font-weight'><%= @patient.age %></span></h5>
+    <h5>Sex: <span class='font-weight'><%= @patient.sex %></span></h5>
+      <h5>Doctors: <span class='font-weight'>
+    <% @appts.each do |appt| %>
+    <div class='list_padding'>
+      <li><%= appt.doctor.name%></li>
+    <% end %>
+  <div class='crud_buttons'>
+    <%= link_to 'Edit Patient', edit_patient_path(@patient), class: "ui secondary basic button" %>
+    <%= link_to 'Delete Patient', @patient, method: :delete, class:'ui negative basic button' %>
+  </div>
+    </div>
+  </h5>
 </div>
-</div>
+
+

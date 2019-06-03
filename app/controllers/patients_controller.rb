@@ -4,14 +4,16 @@ class PatientsController < ApplicationController
 
   def index
     @patients = Patient.all
+    # @appts = @patient.appts
   end
 
   def show
     # Before Action
+    @appts = @patient.appts
   end
 
   def new
-    @patient = Patient.new(patient_params)
+    @patient = Patient.new
     # render partial: "form"
   end
 

@@ -1,0 +1,16 @@
+<h1><%= @appt.id ? "Edit Appointment" : "Create New Appointment" %></h1>
+<%= form_with(model: [@doctor, @appt], local: true, class: 'ui form' ) do |f| %>
+<div class="field">
+  <%= f.label :patient %>
+  <%= f.select :patient_id, Patient.all.collect { |u| [u.first_name + " " + u.last_name, u.id] }  %>
+  </div>
+<div class="field">
+    <%= f.label :date %>
+    <%= f.date_field :date, required: true, autofocus: true, placeholder: "Date" %>
+  </div>
+<div class="field">
+    <%= f.label :time %>
+    <%= f.time_field :time, required: true, placeholder: "Time" %>
+  </div>
+  <%= f.submit nil, class: "ui basic button" %>
+<% end %>
