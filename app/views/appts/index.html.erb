@@ -14,7 +14,7 @@
   <tbody>
     <% @appts.each do |a| %>
     <tr>
-      <td><b><%= a.patient.last_name %></b>, <%= a.patient.first_name %></td> 
+      <td><b></b><%= a.patient.last_name %></b>, <%= a.patient.first_name %></td> 
       <td><%= a.date.strftime('%a, %b, %d, %Y') %></td>
       <td><%= a.time.strftime('%l:%M %p') %></td>
       <td><%= link_to 'Edit Appointment', edit_doctor_appt_path(@doctor, a.id), class: 'ui secondary basic button' %></td>

@@ -1,7 +1,8 @@
 @sex = ["M", "F"]
 @doctors = []
 @patients = []
-
+# @id_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] 
+@id_array = *(1..10)
 
 
   10.times do 
@@ -26,15 +27,16 @@
       
       # binding.pry
 
-rand(5..10).times do 
+rand(5..30).times do 
   Appt.create(
     date: Faker::Date.forward(60).to_date,
     time: Faker::Time.forward(2, :morning),
-    patient_id: (Patient.all.collect { |p| [p.id] }).sample,
-    doctor_id: (Doctor.all.collect { |d| [d.id] }).sample
+    # patient_id: (Patient.all.collect { |p| [p.id] }).sample,
+    # doctor_id: (Doctor.all.collect { |d| [d.id] }).sample
+    patient_id: @id_array.sample,
+    doctor_id: @id_array.sample
     )
   end
-  # binding.pry
         
 
 puts "seeded"
