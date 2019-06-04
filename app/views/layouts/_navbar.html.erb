@@ -1,9 +1,15 @@
 <nav>
-  <div class='ui secondary five item menu'>
+  <div class='ui secondary seven item menu'>
+  <% if user_signed_in? %>
+  <div class='item' id='nav'>
+    <b><%= "Welcome, #{current_user.first_name}!" %></b>
+  </div>
     <%= link_to 'Home', root_path, class: 'item', id: 'nav'%>
     <%= link_to 'Patients', patients_path, class: 'item', id: 'nav'%>
     <%= link_to 'New Patient', new_patient_path, class: 'item', id: 'nav'%>
     <%= link_to 'Doctors', doctors_path, class: 'item', id: 'nav'%>
     <%= link_to 'New Doctor', new_doctor_path, class: 'item', id: 'nav'%>
+    <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: 'item' %>
+<% end %>
   </div>
 </nav>

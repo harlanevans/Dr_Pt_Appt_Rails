@@ -1,15 +1,13 @@
-Rails.application.routes.draw do
+Rails.application.routes.draw do 
+  devise_for :users
   root 'static_pages#home'
+  resources :accounts
 
-  get 'static_pages/about'
-  # get 'static_pages/home'
+  resources :static_pages
 
   resources :patients
 
   resources :doctors do
     resources :appts
   end
-
-  resources :static_pages
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

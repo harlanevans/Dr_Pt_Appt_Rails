@@ -35,9 +35,12 @@ gem 'jbuilder', '~> 2.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+gem "devise"
 
 gem 'semantic-ui-sass'
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+
+gem 'rubocop-rails'
 
 group :development, :test do
   gem 'pry-rails', '~> 0.3.4'
